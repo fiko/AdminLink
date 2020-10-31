@@ -1,0 +1,17 @@
+{
+    "name": "fiko/magento2-adminurl",
+    "description": "Create direct URL to magento2 adminhtml.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fiko\\AdminUrl\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
