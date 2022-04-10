@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Model;
 
-use Fiko\AdminUrl\Model\NotificationFactory;
 use Fiko\AdminUrl\Model\ResourceModel\Notification;
 use Magento\Backend\Model\Url as MagentoUrl;
 
@@ -20,7 +24,7 @@ class Url
 
     public function generateKey()
     {
-        return hash('tiger192,3', uniqid() . time() . uniqid());
+        return hash('tiger192,3', uniqid().time().uniqid());
     }
 
     public function getUrl($path, $params = [])
@@ -34,6 +38,7 @@ class Url
         $notification->setKey($key);
         $notification->setDestination($path);
         $this->notificationResourceModel->save($notification);
-        return $this->url->getUrl("fiko_adminurl/go/to", ['key' => $key]) . $path;
+
+        return $this->url->getUrl('fiko_adminurl/go/to', ['key' => $key]).$path;
     }
 }

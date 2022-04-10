@@ -1,23 +1,27 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Model;
 
-use \Magento\Framework\Model\Context;
-use \Magento\Framework\Registry;
-use \Magento\Framework\Model\ResourceModel\AbstractResource;
-use \Magento\Framework\Data\Collection\AbstractDb;
-use \Magento\Framework\Model\AbstractModel;
-use \Fiko\AdminUrl\Api\Data\NotificationInterface;
-use \Fiko\AdminUrl\Model\ResourceModel\Notification as ResourceModelNotification;
+use Fiko\AdminUrl\Api\Data\NotificationInterface;
+use Fiko\AdminUrl\Model\ResourceModel\Notification as ResourceModelNotification;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\Context;
+use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Registry;
 
 class Notification extends AbstractModel implements NotificationInterface
 {
     /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Framework\Model\Context                        $context
+     * @param \Magento\Framework\Registry                             $registry
      * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
-     * @param array $data
+     * @param \Magento\Framework\Data\Collection\AbstractDb           $resourceCollection
      */
     public function __construct(
         Context $context,
@@ -30,7 +34,7 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * Initialize resource model
+     * Initialize resource model.
      *
      * @return void
      */

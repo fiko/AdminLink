@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Api\Data;
 
 interface NotificationInterface
@@ -9,46 +14,49 @@ interface NotificationInterface
     const CREATED_AT = 'created_at';
 
     /**
-     * get key
-     * 
+     * get key.
+     *
      * @return string
      */
     public function getKey();
 
     /**
-     * set key
-     * 
+     * set key.
+     *
      * @param string $key
+     *
      * @return $this
      */
     public function setKey($key);
 
     /**
-     * get destination
-     * 
+     * get destination.
+     *
      * @return string
      */
     public function getDestination();
 
     /**
-     * set destination
-     * 
+     * set destination.
+     *
      * @param string $destination
+     *
      * @return $this
      */
     public function setDestination($destination);
 
     /**
-     * get created at
-     * 
+     * get created at.
+     *
      * @return string
      */
     public function getCreatedAt();
 
     /**
-     * set created at
-     * 
+     * set created at.
+     *
      * @param string $createdAt
+     *
      * @return $this
      */
     public function setCreatedAt($createdAt);

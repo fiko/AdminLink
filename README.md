@@ -57,4 +57,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/) &copy; 2020
+[MIT](COPYING.txt) &copy; 2022

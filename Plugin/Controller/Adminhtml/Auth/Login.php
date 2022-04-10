@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Plugin\Controller\Adminhtml\Auth;
 
+use Fiko\AdminUrl\Model\ResourceModel\Notification\CollectionFactory;
 use Magento\Backend\Model\Auth;
 use Magento\Backend\Model\UrlInterface;
+use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\View\Result\PageFactory;
-use Fiko\AdminUrl\Model\ResourceModel\Notification\CollectionFactory;
-use Magento\Framework\App\Request\Http;
 
 class Login
 {
@@ -35,16 +40,21 @@ class Login
             if ($this->_auth->getAuthStorage()->isFirstPageAfterLogin()) {
                 $this->_auth->getAuthStorage()->setIsFirstPageAfterLogin(true);
             }
+
             return $this->response->setRedirect($this->_backendUrl->getStartupPageUrl())->sendResponse();
         }
 
-        if (strpos($this->http->getPathInfo(), 'fiko_adminurl') === false) return $proceed();
+        if (strpos($this->http->getPathInfo(), 'fiko_adminurl') === false) {
+            return $proceed();
+        }
 
         $key = $this->http->getParam('fiko_adminurl');
         $notification = $this->notificationCollectionFactory->create()->addFieldToFilter('key', ['eq' => $key])
             ->getFirstItem();
 
-        if ($notification->isEmpty()) return $proceed();
+        if ($notification->isEmpty()) {
+            return $proceed();
+        }
 
         return $this->resultPageFactory->create();
     }

@@ -1,16 +1,21 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Controller\Adminhtml\Go;
 
-use Magento\Backend\App\Action\Context;
-use Magento\Store\Model\StoreManagerInterface;
-use Magento\Framework\App\Request\Http;
 use Fiko\AdminUrl\Model\NotificationFactory;
-use Magento\Backend\Model\Url;
-use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\App\ResponseInterface;
 use Fiko\AdminUrl\Model\ResourceModel\Notification\CollectionFactory;
+use Magento\Backend\App\Action\Context;
+use Magento\Backend\Model\Url;
+use Magento\Framework\App\Request\Http;
+use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\Result\RedirectFactory;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Store\Model\StoreManagerInterface;
 
 class To extends \Magento\Backend\App\Action
 {
@@ -38,9 +43,10 @@ class To extends \Magento\Backend\App\Action
     }
 
     /**
-     * Check url keys. If non valid - redirect
+     * Check url keys. If non valid - redirect.
      *
      * @return bool
+     *
      * @see \Magento\Backend\App\Request\BackendValidator for default
      * request validation.
      */
@@ -52,20 +58,24 @@ class To extends \Magento\Backend\App\Action
         $notification = $this->notificationCollectionFactory->create()->addFieldToFilter('key', ['eq' => $key])
             ->addFieldToFilter('destination', ['eq' => $destination])->getFirstItem();
 
-        if ($notification->isEmpty()) return parent::_processUrlKeys();
+        if ($notification->isEmpty()) {
+            return parent::_processUrlKeys();
+        }
 
         if (!$this->_auth->isLoggedIn()) {
             $url = $this->url->getUrl('admin/index/index', ['fiko_adminurl' => $key]);
             $this->response->setRedirect($url)->sendResponse();
+
             return false;
         }
 
         $this->response->setRedirect($this->url->getUrl($notification->getDestination()))->sendResponse();
+
         return false;
     }
 
     /**
-     * Always redirect to homepage if failed to validate URL
+     * Always redirect to homepage if failed to validate URL.
      *
      * @return \Magento\Framework\View\Result\Page
      */
@@ -73,6 +83,7 @@ class To extends \Magento\Backend\App\Action
     {
         $resultRedirect = $this->resultRedirectFactory->create();
         $resultRedirect->setPath('');
+
         return $resultRedirect;
     }
 }
