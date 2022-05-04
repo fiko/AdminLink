@@ -9,19 +9,19 @@ namespace Fiko\AdminUrl\Api\Data;
 
 interface NotificationInterface
 {
-    const KEY = 'key';
-    const DESTINATION = 'destination';
-    const CREATED_AT = 'created_at';
+    public const KEY = 'key';
+    public const DESTINATION = 'destination';
+    public const CREATED_AT = 'created_at';
 
     /**
-     * get key.
+     * Get key.
      *
      * @return string
      */
     public function getKey();
 
     /**
-     * set key.
+     * Set key.
      *
      * @param string $key
      *
@@ -30,14 +30,14 @@ interface NotificationInterface
     public function setKey($key);
 
     /**
-     * get destination.
+     * Get destination.
      *
      * @return string
      */
     public function getDestination();
 
     /**
-     * set destination.
+     * Set destination.
      *
      * @param string $destination
      *
@@ -46,14 +46,14 @@ interface NotificationInterface
     public function setDestination($destination);
 
     /**
-     * get created at.
+     * Get created at.
      *
      * @return string
      */
     public function getCreatedAt();
 
     /**
-     * set created at.
+     * Set created at.
      *
      * @param string $createdAt
      *

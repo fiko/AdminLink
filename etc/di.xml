@@ -1,10 +1,19 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Fiko\AdminUrl\Api\Data\NotificationInterface" type="Fiko\AdminUrl\Model\Notification"/>
     <type name="Magento\Backend\App\AbstractAction">
-        <plugin name="fiko_adminurl_authentication" type="Fiko\AdminUrl\Plugin\Authentication" sortOrder="110" disabled="false"/>
+        <plugin name="fiko_adminurl_authentication" type="Fiko\AdminUrl\Plugin\Authentication" sortOrder="110" 
+                disabled="false"/>
     </type>
     <type name="Magento\Backend\Controller\Adminhtml\Auth\Login">
-        <plugin name="fiko_adminurl_controller_adminhtml_auth_login" type="Fiko\AdminUrl\Plugin\Controller\Adminhtml\Auth\Login" sortOrder="110" disabled="false"/>
+        <plugin name="fiko_adminurl_controller_adminhtml_auth_login" 
+                type="Fiko\AdminUrl\Plugin\Controller\Adminhtml\Auth\Login" sortOrder="110" disabled="false"/>
     </type>
 </config>

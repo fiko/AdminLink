@@ -12,6 +12,13 @@ use Magento\Backend\Model\Url as MagentoUrl;
 
 class Url
 {
+    /**
+     * Constructor.
+     *
+     * @param NotificationFactory $notificationFactory
+     * @param Notification $notificationResourceModel
+     * @param MagentoUrl $url
+     */
     public function __construct(
         NotificationFactory $notificationFactory,
         Notification $notificationResourceModel,
@@ -22,11 +29,23 @@ class Url
         $this->url = $url;
     }
 
+    /**
+     * Generating key for the record.
+     *
+     * @return string
+     */
     public function generateKey()
     {
         return hash('tiger192,3', uniqid().time().uniqid());
     }
 
+    /**
+     * Getting url from specific path.
+     *
+     * @param string $path
+     * @param array $params
+     * @return void
+     */
     public function getUrl($path, $params = [])
     {
         $path .= substr($path, -1, 1) != '/' ? '/' : '';

@@ -15,6 +15,15 @@ use Magento\Framework\Controller\ResultFactory;
 
 class Authentication
 {
+    /**
+     * Constructor
+     *
+     * @param Auth $auth
+     * @param NotificationFactory $notificationFactory
+     * @param ResultFactory $resultFactory
+     * @param Url $url
+     * @param ResponseInterface $response
+     */
     public function __construct(
         Auth $auth,
         NotificationFactory $notificationFactory,
@@ -29,12 +38,20 @@ class Authentication
         $this->response = $response;
     }
 
+    /**
+     * Around method for dispatch method.
+     *
+     * @param \Magento\Backend\App\AbstractAction $subject
+     * @param callable $proceed
+     * @param \Magento\Framework\App\RequestInterface $request
+     * @return void
+     */
     public function aroundDispatch(
         \Magento\Backend\App\AbstractAction $subject,
         callable $proceed,
         \Magento\Framework\App\RequestInterface $request
     ) {
-        if (is_null($request->getParam('fiko_adminurl'))) {
+        if ($request->getParam('fiko_adminurl') === null) {
             return $proceed($request);
         }
         if ($request->getMethod() !== 'POST') {

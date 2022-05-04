@@ -19,6 +19,19 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class To extends \Magento\Backend\App\Action
 {
+    /**
+     * Constructor
+     *
+     * @param Context $context
+     * @param StoreManagerInterface $storeManager
+     * @param Http $http
+     * @param NotificationFactory $notificationFactory
+     * @param Url $url
+     * @param ResultFactory $resultFactory
+     * @param ResponseInterface $response
+     * @param CollectionFactory $notificationCollectionFactory
+     * @param RedirectFactory $resultRedirectFactory
+     */
     public function __construct(
         Context $context,
         StoreManagerInterface $storeManager,
