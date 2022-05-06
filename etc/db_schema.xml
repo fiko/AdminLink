@@ -5,7 +5,8 @@
  * See COPYING.txt for license details.
  */
 -->
-<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="fiko_adminurl_notification" resource="default" engine="innodb" comment="Admin Direct URL">
         <column xsi:type="varchar" name="key" nullable="false" length="50" comment="Notification key"/>
         <column xsi:type="varchar" name="destination" nullable="false" length="255" comment="URL Destination"/>
