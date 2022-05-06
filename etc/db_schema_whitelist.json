@@ -1,0 +1,15 @@
+{
+    "fiko_adminurl_notification": {
+        "column": {
+            "key": true,
+            "destination": true,
+            "created_at": true
+        },
+        "index": {
+            "FIKO_ADMINURL_NOTIFICATION_KEY": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

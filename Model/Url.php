@@ -1,13 +1,24 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Model;
 
-use Fiko\AdminUrl\Model\NotificationFactory;
 use Fiko\AdminUrl\Model\ResourceModel\Notification;
 use Magento\Backend\Model\Url as MagentoUrl;
 
 class Url
 {
+    /**
+     * Constructor.
+     *
+     * @param NotificationFactory $notificationFactory
+     * @param Notification $notificationResourceModel
+     * @param MagentoUrl $url
+     */
     public function __construct(
         NotificationFactory $notificationFactory,
         Notification $notificationResourceModel,
@@ -18,11 +29,23 @@ class Url
         $this->url = $url;
     }
 
+    /**
+     * Generating key for the record.
+     *
+     * @return string
+     */
     public function generateKey()
     {
-        return hash('tiger192,3', uniqid() . time() . uniqid());
+        return hash('tiger192,3', uniqid().time().uniqid());
     }
 
+    /**
+     * Getting url from specific path.
+     *
+     * @param string $path
+     * @param array $params
+     * @return void
+     */
     public function getUrl($path, $params = [])
     {
         $path .= substr($path, -1, 1) != '/' ? '/' : '';
@@ -34,6 +57,7 @@ class Url
         $notification->setKey($key);
         $notification->setDestination($path);
         $this->notificationResourceModel->save($notification);
-        return $this->url->getUrl("fiko_adminurl/go/to", ['key' => $key]) . $path;
+
+        return $this->url->getUrl('fiko_adminurl/go/to', ['key' => $key]).$path;
     }
 }

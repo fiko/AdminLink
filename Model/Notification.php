@@ -1,36 +1,43 @@
 <?php
 
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
 namespace Fiko\AdminUrl\Model;
 
-use \Magento\Framework\Model\Context;
-use \Magento\Framework\Registry;
-use \Magento\Framework\Model\ResourceModel\AbstractResource;
-use \Magento\Framework\Data\Collection\AbstractDb;
-use \Magento\Framework\Model\AbstractModel;
-use \Fiko\AdminUrl\Api\Data\NotificationInterface;
-use \Fiko\AdminUrl\Model\ResourceModel\Notification as ResourceModelNotification;
+use Fiko\AdminUrl\Api\Data\NotificationInterface;
+use Fiko\AdminUrl\Model\ResourceModel\Notification as ResourceModelNotification;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\Context;
+use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Registry;
 
 class Notification extends AbstractModel implements NotificationInterface
 {
-    /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
-     * @param array $data
-     */
-    public function __construct(
-        Context $context,
-        Registry $registry,
-        AbstractResource $resource = null,
-        AbstractDb $resourceCollection = null,
-        array $data = []
-    ) {
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
-    }
+    // /**
+    //  * Constructor
+    //  *
+    //  * @param Context $context
+    //  * @param Registry $registry
+    //  * @param AbstractResource|null $resource
+    //  * @param AbstractDb|null $resourceCollection
+    //  * @param array $data
+    //  */
+    // public function __construct(
+    //     Context $context,
+    //     Registry $registry,
+    //     AbstractResource $resource = null,
+    //     AbstractDb $resourceCollection = null,
+    //     array $data = []
+    // ) {
+    //     parent::__construct($context, $registry, $resource, $resourceCollection, $data);
+    // }
 
     /**
-     * Initialize resource model
+     * Initialize resource model.
      *
      * @return void
      */
@@ -40,7 +47,7 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {{@inheritdoc}}
      */
     public function getKey()
     {
@@ -48,7 +55,9 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Setup key of the row.
+     *
+     * @param string $key
      */
     public function setKey($key)
     {
@@ -56,7 +65,7 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {{@inheritdoc}}
      */
     public function getDestination()
     {
@@ -64,7 +73,9 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Setup destination.
+     *
+     * @param string $destination
      */
     public function setDestination($destination)
     {
@@ -72,7 +83,7 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {{@inheritdoc}}
      */
     public function getCreatedAt()
     {
@@ -80,7 +91,9 @@ class Notification extends AbstractModel implements NotificationInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Set timestamp of when it's created.
+     *
+     * @param string $createdAt
      */
     public function setCreatedAt($createdAt)
     {

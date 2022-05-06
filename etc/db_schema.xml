@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Fiko Borizqy. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="fiko_adminurl_notification" resource="default" engine="innodb" comment="Admin Direct URL">
+        <column xsi:type="varchar" name="key" nullable="false" length="50" comment="Notification key"/>
+        <column xsi:type="varchar" name="destination" nullable="false" length="255" comment="URL Destination"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="key"/>
+        </constraint>
+        <index referenceId="FIKO_ADMINURL_NOTIFICATION_KEY" indexType="fulltext">
+            <column name="key"/>
+        </index>
+    </table>
+</schema>
